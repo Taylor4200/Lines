@@ -134,7 +134,7 @@
                 {#each autoPlayOptions as option}
                   <button class="autoplay-btn" on:click={() => startAutoplay(option)}>{option === Infinity ? '∞' : option}</button>
                 {/each}
-                <button class="autoplay-btn stop" on:click={() => { stopAutoplay(); showAutoplay = false; }}>Stop</button>
+                <button class="autoplay-btn stop" on:click={stopAutoplay}>Stop</button>
                 <button class="autoplay-btn close" on:click={() => showAutoplay = false}>Close</button>
               </div>
             </div>
