@@ -25,9 +25,10 @@
 						width={sizes.width}
 						height={sizes.height}
 						anchor={0.5}
+						alpha={0.5}
 						{...disabled || ['spin_disabled', 'stop_disabled'].includes(key)
 							? {
-									backgroundColor: 0xaaaaaa,
+									backgroundColor: 0x000000,
 								}
 							: {}}
 					/>

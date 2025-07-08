@@ -49,8 +49,8 @@ export const convertTorResumableBet = (lastBetData: Bet) => {
 };
 
 // other utils
-export const getSymbolX = (reelIndex: number) => SYMBOL_SIZE * (reelIndex + REEL_PADDING);
-export const getSymbolY = (symbolIndexOfBoard: number) => (symbolIndexOfBoard + 0.5) * SYMBOL_SIZE;
+export const getSymbolX = (reelIndex: number) => SYMBOL_SIZE * (reelIndex + REEL_PADDING) + (reelIndex * 2.4) - 5 ;
+export const getSymbolY = (symbolIndexOfBoard: number) => (symbolIndexOfBoard + 0.6) * SYMBOL_SIZE;
 
 export const getSymbolInfo = ({
 	rawSymbol,

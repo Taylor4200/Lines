@@ -20,15 +20,32 @@
 <!-- logo and loading progress -->
 <FadeContainer show={loadingType === 'start'}>
 	<MainContainer>
+		<!-- Fullscreen background image -->
+		<Sprite
+			key="loadingBg"
+			width={context.stateLayoutDerived.mainLayout().width}
+			height={context.stateLayoutDerived.mainLayout().height}
+			anchor={{ x: 0.5, y: 0.5 }}
+			x={context.stateLayoutDerived.mainLayout().width * 0.5}
+			y={context.stateLayoutDerived.mainLayout().height * 0.5}
+		/>
+
+		<!-- Logo -->
 		<Container
 			x={context.stateLayoutDerived.mainLayout().width * 0.5}
 			y={context.stateLayoutDerived.mainLayout().height * 0.5}
 		>
-			<SpineProvider key="loader" width={300}>
-				<SpineTrack trackIndex={0} animationName={'title_screen'} loop timeScale={3} />
-			</SpineProvider>
-			{#if !context.stateApp.loaded}
-				<LoadingProgress y={250} width={1967 * 0.2} height={346 * 0.2}>
+			<Sprite key="loadingImage" width={512} height={512} anchor={{ x: 0.5, y: 0.5 }} />
+		</Container>
+		
+		<!-- Loading progress bar -->
+		{#if !context.stateApp.loaded}
+			<Container
+				x={context.stateLayoutDerived.mainLayout().width * 0.5}
+				y={context.stateLayoutDerived.mainLayout().height * 0.8}
+				zIndex={2}
+			>
+				<LoadingProgress width={1967 * 0.2} height={346 * 0.2}>
 					{#snippet background(sizes)}
 						<Sprite key="progressBarBackground.png" {...sizes} />
 					{/snippet}
@@ -39,8 +56,8 @@
 						<Sprite key="progressBarFrame.png" {...sizes} />
 					{/snippet}
 				</LoadingProgress>
-			{/if}
-		</Container>
+			</Container>
+		{/if}
 	</MainContainer>
 </FadeContainer>
 

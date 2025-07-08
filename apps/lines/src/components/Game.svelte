@@ -26,6 +26,7 @@
 	import FreeSpinOutro from './FreeSpinOutro.svelte';
 	import Transition from './Transition.svelte';
 	import I18nTest from './I18nTest.svelte';
+	import ControlPanel from './ui/ControlPanel.svelte';
 
 	const context = getContext();
 
@@ -66,14 +67,16 @@
 			<Anticipations />
 		</MainContainer>
 
+		<!-- Remove or comment out the old UI overlay -->
+		<!--
 		<UI>
 			{#snippet gameName()}
-				<UiGameName name="LINES GAME" />
+				<UiGameName name="Katana Protocol" />
 			{/snippet}
 			{#snippet logo()}
 				<Text
 					anchor={{ x: 1, y: 0 }}
-					text="ADD YOUR LOGO"
+					text="ZES"
 					style={{
 						fontFamily: 'proxima-nova',
 						fontSize: REM * 1.5,
@@ -84,6 +87,13 @@
 				/>
 			{/snippet}
 		</UI>
+		-->
+
+		<!-- Add the new ControlPanel overlay -->
+		<div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; pointer-events: auto;">
+			<ControlPanel />
+		</div>
+
 		<Win />
 		<FreeSpinIntro />
 		{#if ['desktop', 'landscape'].includes(context.stateLayoutDerived.layoutType())}

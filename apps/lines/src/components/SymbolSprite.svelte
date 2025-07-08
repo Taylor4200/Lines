@@ -28,7 +28,7 @@
 	x={props.x}
 	y={props.y}
 	anchor={0.5}
-	key={props.symbolInfo.assetKey}
+	key={props.symbolInfo.assetKey.endsWith('.png') ? props.symbolInfo.assetKey : props.symbolInfo.assetKey + '.png'}
 	width={SYMBOL_SIZE * props.symbolInfo.sizeRatios.width}
 	height={SYMBOL_SIZE * props.symbolInfo.sizeRatios.height}
 />

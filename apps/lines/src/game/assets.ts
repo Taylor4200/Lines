@@ -8,6 +8,11 @@ export default {
 		},
 		preload: true,
 	},
+	loadingImage: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/loadingImage/loadingImage.png', import.meta.url).href,
+		preload: true,
+	},
 	pressToContinueText: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url).href,
@@ -34,22 +39,6 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols/symbols.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols/h3.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
-	H4: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/symbols/symbols.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/symbols/h4.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
-	H5: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/symbols/symbols.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/symbols/h5.json', import.meta.url).href,
 			scale: 2,
 		},
 	},
@@ -120,6 +109,10 @@ export default {
 	reelsFrame: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/reelsFrame/reels_frame.json', import.meta.url).href,
+	},
+	reelsFrameStatic: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/reelsFrame/reels_frame.png', import.meta.url).href,
 	},
 	payFrame: {
 		type: 'sprite',
@@ -271,6 +264,15 @@ export default {
 	sound: {
 		type: 'audio',
 		src: new URL('../../assets/audio/sounds.json', import.meta.url).href,
+		preload: true,
+	},
+	cyberFutureBackground: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/cyber-future.png', import.meta.url).href,
+	},
+	loadingBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/cyber-future.png', import.meta.url).href,
 		preload: true,
 	},
 } as const;
