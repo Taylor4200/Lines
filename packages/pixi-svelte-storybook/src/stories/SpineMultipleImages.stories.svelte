@@ -32,7 +32,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp {assets}>
 			<SpineProvider key="multi" {...args}>
 				<SpineTrack trackIndex={0} animationName="fs_won_intro" loop />

@@ -20,7 +20,6 @@
 	import { eventEmitter } from '../game/eventEmitter';
 	import config from '../game/config';
 
-	
 	setContext();
 </script>
 
@@ -54,6 +53,7 @@
 			});
 		},
 	})}
+	{template}
 />
 
 <Story
@@ -65,4 +65,5 @@
 			eventEmitter.broadcast({ type: 'boardHide' });
 		},
 	})}
+	{template}
 />

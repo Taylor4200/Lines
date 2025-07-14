@@ -64,7 +64,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp assets={{}}>
 			<Text {...args} text="hello world" />
 			<Rectangle {...args} filters={[filter]} />
@@ -73,14 +73,16 @@
 </Story>
 
 <Story name="Resize">
-	<StoryPixiApp assets={{}}>
-		<Rectangle {...sharedStyle} width={50} height={50} />
-		<Rectangle {...sharedStyle} y={60} width={dynamicWidth.current} height={50} />
-		{#key dynamicSizes.width}
-			<Rectangle {...sharedStyle} y={60 * 2} width={dynamicSizes.width} height={dynamicSizes.height} />
-		{/key}
-		<Rectangle {...sharedStyle} y={60 * 4} width={dynamicSizes.width} height={dynamicSizes.height} />
-		<Rectangle {...sharedStyle} y={60 * 3} {...dynamicSizes} />
-	</StoryPixiApp>
+	{#snippet template()}
+		<StoryPixiApp assets={{}}>
+			<Rectangle {...sharedStyle} width={50} height={50} />
+			<Rectangle {...sharedStyle} y={60} width={dynamicWidth.current} height={50} />
+			{#key dynamicSizes.width}
+				<Rectangle {...sharedStyle} y={60 * 2} width={dynamicSizes.width} height={dynamicSizes.height} />
+			{/key}
+			<Rectangle {...sharedStyle} y={60 * 4} width={dynamicSizes.width} height={dynamicSizes.height} />
+			<Rectangle {...sharedStyle} y={60 * 3} {...dynamicSizes} />
+		</StoryPixiApp>
+	{/snippet}
 </Story>
 

@@ -7,6 +7,6 @@
 	"scripts": {
 	},
 	"dependencies": {
-		"@lingui/conf": "latest"
+		"@lingui/conf": "5.2.0"
 	}
 }

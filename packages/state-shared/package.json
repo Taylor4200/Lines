@@ -8,7 +8,7 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"eslint": "^9",
+		"eslint": "9.21.0",
 		"eslint-config-custom": "workspace:*",
 		"config-ts": "workspace:*",
 		"config-vite": "workspace:*",
@@ -16,9 +16,9 @@
 		"config-lingui": "workspace:*"
 	},
 	"dependencies": {
-		"svelte": "^5",
-		"@sveltejs/kit": "latest",
+		"svelte": "5.20.5",
+		"@sveltejs/kit": "2.17.3",
 		"utils-bet": "workspace:*",
-		"@lingui/core": "latest"
+		"@lingui/core": "5.2.0"
 	}
 }

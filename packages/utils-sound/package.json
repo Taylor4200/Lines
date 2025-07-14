@@ -8,7 +8,7 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"eslint": "^9",
+		"eslint": "9.21.0",
 		"eslint-config-custom": "workspace:*",
 		"config-ts": "workspace:*",
 		"config-svelte": "workspace:*"
@@ -17,8 +17,8 @@
 		"state-shared": "workspace:*",
 		"utils-shared": "workspace:*",
 		"pixi-svelte": "workspace:*",
-		"svelte": "^5",
-		"@types/howler": "latest",
-		"howler": "latest"
+		"svelte": "5.20.5",
+		"@types/howler": "2.2.12",
+		"howler": "2.2.4"
 	}
 }

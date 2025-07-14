@@ -31,14 +31,16 @@
 </script>
 
 <Story name="expandingWilds">
-	<StoryPixiApp {assets}>
-		{#each ANIMATION_NAMES as animationName, index}
-			<Container x={SYMBOL_SIZE * index * 2 + SYMBOL_SIZE}>
-				<Text anchor={{ x: 0.5, y: 0 }} text={animationName} />
-				<Container y={100}>
-					<ExpandingWild {animationName} loop />
+	{#snippet template()}
+		<StoryPixiApp {assets}>
+			{#each ANIMATION_NAMES as animationName, index}
+				<Container x={SYMBOL_SIZE * index * 2 + SYMBOL_SIZE}>
+					<Text anchor={{ x: 0.5, y: 0 }} text={animationName} />
+					<Container y={100}>
+						<ExpandingWild {animationName} loop />
+					</Container>
 				</Container>
-			</Container>
-		{/each}
-	</StoryPixiApp>
+			{/each}
+		</StoryPixiApp>
+	{/snippet}
 </Story>

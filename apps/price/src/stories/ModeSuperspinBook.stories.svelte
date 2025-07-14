@@ -20,7 +20,6 @@
 	import { playBet } from '../game/utils';
 	import books from './data/superspin_books';
 
-	
 	setContext();
 </script>
 
@@ -49,4 +48,5 @@
 			await playBet({ ...data, state: data.events });
 		},
 	})}
+	{template}
 />

@@ -23,7 +23,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp assets={{}}>
 			<Rectangle width={200} height={200} backgroundColor={0xd32133}	/>
 			<Container filters={[new PIXI.AlphaFilter()]}>

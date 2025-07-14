@@ -21,7 +21,7 @@
 </script>
 
 <Story name="From Sprite">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp assets={{
 			sprite: { type: 'sprite', src: 'https://test-twist-front-2.s3.ap-southeast-2.amazonaws.com/pixi-svelte-package/fighter/fighter.png' },
 		}}>
@@ -31,7 +31,7 @@
 </Story>
 
 <Story name="From Sprites">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp assets={{
 			sprites: { type: 'sprites', src: 'https://test-twist-front-2.s3.ap-southeast-2.amazonaws.com/pixi-svelte-package/sprites/sprites.json' },
 		}}>

@@ -19,7 +19,6 @@
 	import { playBookEvent } from '../game/utils';
 	import events from './data/superspin_events';
 
-	
 	setContext();
 </script>
 
@@ -43,6 +42,7 @@
 		data: events.reveal,
 		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
 	})}
+	{template}
 />
 
 <Story
@@ -52,6 +52,7 @@
 		data: events.updateFreeSpin,
 		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
 	})}
+	{template}
 />
 
 <Story
@@ -61,6 +62,7 @@
 		data: events.newStickySymbols,
 		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
 	})}
+	{template}
 />
 
 <Story
@@ -70,6 +72,7 @@
 		data: events.prizeWinInfo,
 		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
 	})}
+	{template}
 />
 
 <Story
@@ -79,6 +82,7 @@
 		data: events.setWin,
 		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
 	})}
+	{template}
 />
 
 <Story
@@ -88,6 +92,7 @@
 		data: events.setTotalWin,
 		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
 	})}
+	{template}
 />
 
 <Story
@@ -97,4 +102,5 @@
 		data: events.finalWin,
 		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
 	})}
+	{template}
 />

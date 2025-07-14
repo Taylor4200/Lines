@@ -51,6 +51,7 @@
 			await stateGameDerived.enhancedBoard.preSpin({});
 		},
 	})}
+	{template}
 />
 
 <Story
@@ -62,4 +63,5 @@
 			eventEmitter.broadcast({ type: 'boardHide' });
 		},
 	})}
+	{template}
 />

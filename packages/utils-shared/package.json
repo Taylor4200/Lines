@@ -10,14 +10,14 @@
 		"lint": "eslint *.ts*"
 	},
 	"devDependencies": {
-		"eslint": "^9",
+		"eslint": "9.21.0",
 		"config-ts": "workspace:*",
 		"eslint-config-custom": "workspace:*"
 	},
 	"dependencies": {
-		"lodash": "latest",
-		"@types/lodash": "latest",
-		"@lingui/core": "latest",
+		"lodash": "4.17.16",
+		"@types/lodash": "4.17.16",
+		"@lingui/core": "5.2.0",
 		"state-shared": "workspace:*",
 		"constants-shared": "workspace:*"
 	}

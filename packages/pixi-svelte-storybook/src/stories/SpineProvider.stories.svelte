@@ -39,7 +39,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp {assets}>
 			<SpineProvider {...args} key="guitar">
 				<SpineTrack trackIndex={0} animationName="transition_loop" loop />

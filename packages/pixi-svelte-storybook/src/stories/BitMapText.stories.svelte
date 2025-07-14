@@ -31,7 +31,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp {assets}>
 			<BitmapText {...args} />
 		</StoryPixiApp>

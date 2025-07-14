@@ -30,7 +30,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp {assets}>
 			<SpriteSheet {...args} key="fighter" loop />
 		</StoryPixiApp>

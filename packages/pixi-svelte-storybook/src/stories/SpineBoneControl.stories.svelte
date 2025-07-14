@@ -47,7 +47,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp {assets}>
 			<SpineProvider key="tracks" x={600} y={400} width={2000}>
 				<SpineTrack trackIndex={0} animationName="idle" loop />

@@ -16,11 +16,11 @@
     "e2e-mobile": "turbo run e2e-mobile"
   },
   "dependencies": {
-    "eslint": "^9",
+    "eslint": "9.21.0",
     "eslint-config-custom": "workspace:*",
-    "prettier": "^3",
-    "prettier-plugin-svelte": "^3",
-    "turbo": "^2.4.4"
+    "prettier": "3.5.2",
+    "prettier-plugin-svelte": "3.3.3",
+    "turbo": "2.4.4"
   },
   "engines": {
     "node": ">=22.16.0"

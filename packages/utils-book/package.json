@@ -8,13 +8,13 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"eslint": "^9",
+		"eslint": "9.21.0",
 		"eslint-config-custom": "workspace:*",
 		"config-ts": "workspace:*"
 	},
 	"dependencies": {
-		"lodash": "latest",
-		"@types/lodash": "latest",
+		"lodash": "4.17.16",
+		"@types/lodash": "4.17.16",
 		"envs": "workspace:*",
 		"state-shared": "workspace:*",
 		"utils-shared": "workspace:*",

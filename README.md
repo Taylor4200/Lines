@@ -2,7 +2,7 @@
 
 This is a web sdk that is convenient for you to develop a game in a declarative way. It is an optional way to build and launch your games on with [Stake Engine](https://engine.stake.com/) with some easy steps. It is powered by Svelte 5, PixiJS 8 and TurboRepo.
 
-- How to use: Start your own codebase based on this repo and changing any source code as you need.
+- How to use: Start your own codebase based on this repo and change any source code as you need.
 
 
 # Table of Contents
@@ -13,6 +13,7 @@ This is a web sdk that is convenient for you to develop a game in a declarative 
   - [Run in DEV Mode](#runInDevMode) 
   - [Build a Game](#buildAGame) 
   - [Launch a Game](#launchAGame) 
+- [FAQ](#faq)
 - [Dependencies](#dependencies)
 - [Explore Storybook](#exploreStorybook)
 - [Flow Chart](#flowChart)
@@ -96,9 +97,11 @@ pnpm run storybook --filter=lines
 ```
 
 - Run `pnpm run storybook --filter=<MODULE_NAME>` in the terminal to see the storybook of a sample game in a TurboRepo way. `<MODULE_NAME>` is the name in the package.json file of a module in apps or packages folders.
-- For example, we have `"name": "lines"` in the [apps/lines/package.json](/apps/lines/package.json), so we can find it and run its storybook by:
-
-
+- For example, we have `"name": "lines"` in the [apps/lines/package.json](/apps/lines/package.json), so we can find it and run its storybook.
+- For Windows users, you might need to add the script with "cross-env" to make it work:
+```
+"storybook": "cross-env PUBLIC_CHROMATIC=true storybook dev -p 6001 public",
+```
 - You should see this:
 
 <img src="./documentation/get-started-storybook-run.png" alt="isolated" width="100%"/>
@@ -120,7 +123,7 @@ pnpm run dev --filter=lines
 
 <img src="./documentation/get-started-dev.png" alt="isolated" width="100%"/>
 
-- It is all good to have that error screen for now, because we have not connected to the RGS with DEV mode. We will show you later how to do that.
+- It is all good to have that error screen for now, because we have not connected to the RGS with DEV mode. We will show you how to do that in the launch-a-game step.
 
 - For more information about how the authentication is handled, please refer to [Authenticate.svelte](https://github.com/StakeEngine/web-sdk/blob/main/packages/components-shared/src/components/Authenticate.svelte)
 
@@ -157,7 +160,7 @@ build
 
 ## Launch a game
 
-- Login [Stake Engine](https://engine.stake.com/) account. Go to `Files` page of a game. Import files by uploading your the frontend by selecting the whole folder.
+- Login [Stake Engine](https://engine.stake.com/) account. Go to `Files` page of a game. Import files to upload your the frontend by selecting the whole build folder.
 
 <img src="./documentation/get-started-launch-home.png" alt="isolated" width="100%"/>
 
@@ -178,6 +181,60 @@ build
 - Now you can go back to the DEV mode and copy/paste the query strings in the url and play it locally.
 
 Congratulations! You've completed the tutorial. You can explore the more content in the following documentation for details.
+
+<a name="faq"></a>
+
+# FAQ
+- Q: Would it be possible to use a different programming language or framework, such as using Pixi.js only without Svelte?
+  - A: You can use anything as long as it compiles to a static website, it is only recommended to use the web-sdk for the easiest development and integration experience as everything is already set up for you, but you can also just fork it or take certain parts of it.
+
+- Q: If we use our own UI/Web SDK, how can we pass configuration data into it?
+  - A: About how we handle authentication, configuration, jurisdiction and so on, you can find the answers and an example here: [Authenticate.svelte](https://github.com/StakeEngine/web-sdk/blob/main/packages/components-shared/src/components/Authenticate.svelte)
+
+- Q: Do you have any specific policies (or methods) for handling currencies?
+  - A: Check the function "numberToCurrencyString" in "packages/utils-shared/amount.ts", you will find that any currency that can be handled by "i18n.number" is supported. The currency will be passed in from the authentication request like this "stateBet.currency = authenticateData.balance.currency;". Two special currencies from the social casino like `stake.us` will be handled by "NO_LOCALISATION_CURRENCY_MAP".
+
+- Q: As we are using our own game engine and integrating to RGS with the Web SDK as references. Is there a preference to when "end-round" API gets called? After the winning animation is done or it can be called even before the animations is finished.
+  - A: "end-round" should be called with different timing for different types of bet. Whether a bet can be resumed from the authenticate request is determined by when the "end-round" is called.
+
+```
+packages/utils-xstate/src/createPrimaryMachines.ts
+
+const BET_TYPE_METHODS_MAP = {
+    noWin: {
+        newGame: async () => undefined,
+        endGame: async () => undefined,
+    },
+    singleRoundWin: {
+        newGame: async () => {
+            const endRoundData = await handleRequestEndRound();
+            if (endRoundData?.balance) {
+                balanceAmountFromApiHolder = endRoundData.balance.amount;
+            }
+        },
+        endGame: async () => {
+            if (balanceAmountFromApiHolder !== null) {
+                handleUpdateBalance({ balanceAmountFromApi: balanceAmountFromApiHolder });
+                balanceAmountFromApiHolder = null;
+            }
+        },
+    },
+    bonusWin: {
+        newGame: async () => undefined,
+        endGame: async () => {
+            const data = await handleRequestEndRound();
+            if (data?.balance) {
+                handleUpdateBalance({ balanceAmountFromApi: data.balance.amount });
+                balanceAmountFromApiHolder = null;
+            }
+        },
+    },
+} as const;
+```
+
+- Q: From what I see, most of the animated graphics seem to be spine, is their any other alternatives that you know of, besides spine?
+  - A: Spritesheet animation is a good alternative.
+Check out the example of spritesheet animation here: [SpriteSheet.stories.svelte](https://github.com/StakeEngine/web-sdk/blob/main/packages/pixi-svelte-storybook/src/stories/SpriteSheet.stories.svelte)
 
 <a name="dependencies"></a>
 
@@ -1026,3 +1083,5 @@ For the branding purpose, we recommend you to regard them as just an example of 
 <a name="internationalisation"></a>
 
 # Internationalisation ([i18n](http://www.i18nguy.com/origini18n.html))
+
+To be continued.

@@ -36,7 +36,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp assets={{}}>
 			<Rectangle x={args.x} y={args.y} {...textSizes} backgroundColor={0x500000} backgroundAlpha={0.5} />
 			<Text
@@ -56,14 +56,16 @@
 </Story>
 
 <Story name="Onresize">
-	<StoryPixiApp assets={{}}>
-		{@const test = { width: textSizes.width }}
-		<Rectangle width={test.width} height={50} backgroundColor={0x500000} backgroundAlpha={0.5} />
-		<Text
-			text={dynamicText}
-			onresize={(value) => {
-				textSizes = value;
-			}}
-		/>
-	</StoryPixiApp>
+	{#snippet template()}
+		<StoryPixiApp assets={{}}>
+			{@const test = { width: textSizes.width }}
+			<Rectangle width={test.width} height={50} backgroundColor={0x500000} backgroundAlpha={0.5} />
+			<Text
+				text={dynamicText}
+				onresize={(value) => {
+					textSizes = value;
+				}}
+			/>
+		</StoryPixiApp>
+	{/snippet}
 </Story>

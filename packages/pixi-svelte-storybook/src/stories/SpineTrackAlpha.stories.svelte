@@ -57,7 +57,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<StoryPixiApp {assets}>
 			<Text text="CLICK TO RANDOMLY MOVE PIPE WITH ALPHA EASING" />
 			<SpineProvider {...args} key="reelhouse">

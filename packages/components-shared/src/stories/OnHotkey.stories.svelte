@@ -18,7 +18,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children()}
+	{#snippet template()}
 		<StoryEventEmitter>
 			<EnableHotkey />
 

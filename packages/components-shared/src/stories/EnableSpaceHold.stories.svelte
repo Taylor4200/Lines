@@ -23,7 +23,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children()}
+	{#snippet template()}
 		<StoryEventEmitter>
 			<div>{JSON.stringify(test, undefined, 2)}</div>
 			<EnableHotkey />

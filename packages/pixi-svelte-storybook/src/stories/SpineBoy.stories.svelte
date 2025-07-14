@@ -56,7 +56,7 @@
 </script>
 
 <Story name="Preview">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		{@const props = { ...args, trackIndex: args.trackIndex ?? 0, animationName: args.animationName ?? '' }}
 		<StoryPixiApp {assets}>
 			<SpineProvider key="spineBoy" {...spineProps}>

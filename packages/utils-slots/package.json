@@ -8,14 +8,14 @@
 	},
 	"type": "module",
 	"devDependencies": {
-		"eslint": "^9",
+		"eslint": "9.21.0",
 		"eslint-config-custom": "workspace:*",
 		"config-ts": "workspace:*"
 	},
 	"dependencies": {
-		"svelte": "^5",
-		"lodash": "latest",
-		"@types/lodash": "latest",
+		"svelte": "5.20.5",
+		"lodash": "4.17.16",
+		"@types/lodash": "4.17.16",
 		"envs": "workspace:*",
 		"pixi-svelte": "workspace:*",
 		"utils-shared": "workspace:*",
