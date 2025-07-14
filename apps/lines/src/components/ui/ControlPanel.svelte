@@ -4,6 +4,7 @@
   import InfoPanel from './InfoPanel.svelte';
   import DropdownPanel from './DropdownPanel.svelte';
   import { getContext } from '../../game/context';
+  import SpinButton from './SpinButton.svelte';
 
   let showAutoplay = false;
   let showVolume = false;
@@ -100,19 +101,21 @@
   </div>
 
   <div class="center-group">
-    <button class="spin-btn {spinning ? 'spinning' : ''}" on:click={handleSpin} aria-label="Spin">
-      <svg class="spin-icon" width="56" height="56" viewBox="0 0 56 56">
-        <defs>
-          <radialGradient id="spinGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
-            <stop offset="100%" stop-color="#e0e0e0" stop-opacity="1"/>
-          </radialGradient>
-        </defs>
-        <circle cx="28" cy="28" r="26" fill="url(#spinGrad)" stroke="#222" stroke-width="2.5"/>
-        <path d="M28 10a18 18 0 1 1-12.7 5.3" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <polygon points="11,7 11,19 21,13" fill="#111"/>
-      </svg>
-    </button>
+    <div style="position: absolute; left: 20%; top: -10px; transform: translateX(-50%);">
+      <button class="spin-btn {spinning ? 'spinning' : ''}" on:click={handleSpin} aria-label="Spin">
+        <svg class="spin-icon" width="56" height="56" viewBox="0 0 56 56">
+          <defs>
+            <radialGradient id="spinGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#e0e0e0" stop-opacity="1"/>
+            </radialGradient>
+          </defs>
+          <circle cx="28" cy="28" r="26" fill="url(#spinGrad)" stroke="#222" stroke-width="2.5"/>
+          <path d="M28 10a18 18 0 1 1-12.7 5.3" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <polygon points="11,7 11,19 21,13" fill="#111"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div class="right-group">
@@ -134,7 +137,7 @@
                 {#each autoPlayOptions as option}
                   <button class="autoplay-btn" on:click={() => startAutoplay(option)}>{option === Infinity ? '∞' : option}</button>
                 {/each}
-                <button class="autoplay-btn stop" on:click={stopAutoplay}>Stop</button>
+                <button class="autoplay-btn stop" on:click={() => { stopAutoplay(); showAutoplay = false; }}>Stop</button>
                 <button class="autoplay-btn close" on:click={() => showAutoplay = false}>Close</button>
               </div>
             </div>

@@ -27,6 +27,7 @@
 	import Transition from './Transition.svelte';
 	import I18nTest from './I18nTest.svelte';
 	import ControlPanel from './ui/ControlPanel.svelte';
+	import KatanaLogo from './KatanaLogo.svelte';
 
 	const context = getContext();
 
@@ -121,6 +122,9 @@
 			<Board />
 			<Anticipations />
 		</MainContainer>
+
+		<!-- Katana Protocol Logo Overlay -->
+		<KatanaLogo />
 
 		<!-- Game/studio header overlay -->
 		<div class="game-header">
